@@ -1,0 +1,146 @@
+.grid-container {
+  display: flow-root;
+  position: relative;
+  padding: 0 55px 40px 55px;
+}
+.grid-top-btn {
+  text-align: right;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.relative {
+  position: relative;
+}
+.profile-picture {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.profile-description {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+}
+
+.social-link {
+  color: #3498db;
+  text-decoration: none;
+  font-size: 20px;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 662px;
+  padding: 34px;
+}
+.profile-details {
+  text-align: left;
+  margin-top: 30px;
+  margin-left: 22px;
+  width: 100%;
+  max-width: 430px;
+  position: relative;
+  height: 362px;
+}
+.row {
+  height: 50px;
+  width: 80%;
+  margin-top: 20px;
+  position: relative;
+  margin-bottom: 2px;
+
+}
+.detail-item {
+  margin-bottom: 10px;
+}
+
+.detail-label {
+  font-weight: bold;
+  margin-right: 12px;
+  color: #333;
+}
+
+.detail-value {
+  color: #555;
+}
+.field {
+  position: relative;
+  padding: 0 10px;
+  height: 33px !important;
+  border: 1px solid transparent;
+  border-right: 4px;
+  cursor: text;
+  margin-left: -12px;
+}
+
+.input-box input{
+  height: 52px;
+  margin: 18px 0;
+  width: 100%;
+  outline: none;
+  padding: 0 15px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #333;
+  border: 1.5px solid #C7BEBE;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.input-box.button input{
+  color: #fff;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  border: none;
+  padding-left: 0;
+  margin-top: -10px;
+  font-size: 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.input-box.button input:hover{
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+.footerNav{
+  margin: 6px 40px;
+}
+.footerNav ul{
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+.footerNav ul li a{
+  margin: 10px;
+  text-decoration: none;
+  font-size: 1.3em;
+  transition: 0.5s;
+}

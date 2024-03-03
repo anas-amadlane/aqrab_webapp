@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+<div class="wrapper">
+  <div class="title">Login</div>
+  <div style="text-align: center" >
+    <img src="assets/imag/AQRAB.jpg" alt="AQRAB Logo" class="logo" >
+  </div>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+    <div class="row" style="margin-top: 19px">
+      <div class="col-sm-12 form-group required">
+        <label for="email" >Email</label>
+        <div class="field">
+          <input type="text" formControlName="email" id="email"
+                 class="form-control" [ngClass]="{ 'is-invalid': submitted && hasError('email', 'required') }" placeholder="Enter email here"/>
+          <div *ngIf="submitted && hasError('email', 'required')"  class="error-messages">
+            <div>Email is required</div>
+          </div>
+          <div *ngIf="submitted && hasError('email', 'email')"  class="error-messages ">
+            <div>Enter valid email address</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 20px">
+      <div class="col-sm-12 form-group required">
+        <label for="password">Password</label>
+        <div class="field">
+          <input type="password" formControlName="password" id="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && hasError('password', 'required') }" placeholder="Enter password here" />
+          <div  *ngIf="submitted && hasError('password', 'required')" class="error-messages" >
+            Password is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field" style="margin-top:35px; margin-bottom: 19px">
+      <input type="submit" value="Login">
+      <button [disabled]="loading" type="submit"></button>
+    </div>
+    <div *ngIf="error" class="text-left text-danger n-top-xs  error-messages">
+      {{error}}
+    </div>
+    <div class="row action" style="margin-top:20px ;margin-bottom: 19px">
+      <div class="signup-link">
+        Not a member? <a routerLink="/register" class="btn btn-link">Register</a>
+      </div>
+    </div>
+  </form>
+</div>

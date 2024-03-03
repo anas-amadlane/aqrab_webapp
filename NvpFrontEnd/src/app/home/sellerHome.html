@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+<div class="wrapper" >
+  <div class="title">Hello {{ loggedInUser.firstName }}</div>
+  <div style="margin-bottom: 300px">
+    <div >
+      <h2 style="margin-top: 40px;  text-align: center"> enter an Amount (MAD) </h2>
+      <div class="input-box" style="text-align: center" >
+        <input type="number" [(ngModel)]="myQrCodeValue">
+      </div>
+
+      <div  class="input-box" style="text-align: center" (click)="createQrCode()">
+        <div class="input-box button">
+          <input type="submit" value="Generate code">
+        </div>
+        <div *ngIf="error"  class="error-messages text-danger">
+          {{error}}
+        </div>
+        <div class="row col-md-4 offset-md-4" *ngIf="qrCodeValue">
+          <qrcode [qrdata]="qrCodeValue" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+        </div>
+      </div>
+    </div>
+  </div  >
+  <div class="footerContainer">
+    <div class="footerNav" *ngIf="loggedInUser.typeUser=='seller'">
+      <ul>
+        <li><a style="color: #4158d0" href="sellerHome">Home</a></li>
+        <li><a style="color: #000000" href="customersList">Customers</a></li>
+        <li><a style="color: #000000" href="sellerActions">Actions</a></li>
+        <li><a style="color: #000000" href="profilUser">Profil</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+
+

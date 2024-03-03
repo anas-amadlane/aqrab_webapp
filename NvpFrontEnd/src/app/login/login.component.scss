@@ -1,0 +1,221 @@
+.container {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  margin-top: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 0 2px rgb(255, 255, 255);
+}
+
+.error-messages {
+  color: #f74c4c;
+  font-size: 80%;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+  margin-left:-30px;
+  margin-bottom: 20px;
+}
+
+.small-container {
+  width: 450px;
+  padding: inherit;
+  margin-right: -60px;
+  margin-bottom: 15px;
+}
+@media (max-width: 991px) {
+  .form-content {
+    padding: 15px;
+  }
+}
+
+
+.logo{
+  width: 350px;
+  margin-left: -35px;
+  margin-bottom: 15px;
+}
+
+.shadowed {
+  box-shadow: 0 1px 2px rgba(0,0,0,.25);
+  position: relative;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 0 solid  violet;
+  background-color: #ffffff;
+}
+
+.form-group {
+  margin-bottom: 2px;
+}
+.form-content .row.action {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.error-messages {
+  color: #f74c4c;
+  font-size: 80%;
+}
+
+
+.field {
+  position: relative;
+  padding: 0 10px;
+  height: 33px !important;
+  border: 1px solid transparent;
+  border-right: 4px;
+  cursor: text;
+  margin-left: -12px;
+}
+.row {
+  margin: 0 0 8px;
+}
+.form-check {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.form-check input[type="radio"] {
+  margin-right: 5px;
+}
+.form-check label {
+  display: inline-block; /* Display labels inline */
+  margin-bottom: 0; /* Remove default margin-bottom for labels */
+  vertical-align: middle; /* Align labels vertically in the middle */
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.93);
+}
+.wrapper{
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  background: #fff;
+  padding: 74px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.wrapper{
+  position: relative;
+  width: 100%;
+  background: #fff;
+  padding: 34px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.wrapper h2{
+  position: relative;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+.wrapper h2::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 28px;
+  border-radius: 12px;
+  background: #4070f4;
+}
+.wrapper form{
+  margin-top: 30px;
+}
+.wrapper form .input-box{
+  height: 52px;
+  margin: 18px 0;
+}
+form .input-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding: 0 15px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #ffffff;
+  border: 1.5px solid #C7BEBE;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+form .field input[type="submit"]{
+  color: #fff;
+  border: none;
+  padding-left: 0;
+  margin-top: -10px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  transition: all 0.3s ease;
+}
+.input-box input:focus,
+.input-box input:valid{
+  border-color: #4070f4;
+}
+form .policy{
+   display: flex;
+   align-items: center;
+}
+form h3{
+  color: #707070;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+.input-box.button input{
+  color: #fff;
+  border: none;
+  padding-left: 1S60px;
+  margin-top: -10px;
+  max-width: 300px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  transition: all 0.3s ease;
+}
+.input-box.button input:hover{
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+form .text h3{
+  color: #333;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 12px;
+}
+form .text h3 a{
+  color: #4070f4;
+  text-decoration: none;
+}
+form .text h3 a:hover{
+  text-decoration: underline;
+}

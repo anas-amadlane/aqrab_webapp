@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<div class="wrapper">
+    <div class="title">Actions</div>
+    <div style="margin-bottom: 350px">
+        <div>
+            <!--<div class="input-box">
+                <input type="number" [(ngModel)]="idCustomer" placeholder="Enter the customer ID"
+                       (ngModelChange)="onValueChange($event)">
+                <button type="submit" (click)="searchCustomers()"><i class="fa fa-search"></i></button>
+            </div>
+            <br>-->
+            <div class="row" style="margin-top: 15px; margin-bottom: 50px; margin-left: 20px ">
+                <input class="input1" type="number" [(ngModel)]="idCustomer" placeholder="Customer ID" (ngModelChange)="onValueChange($event)"><p>&nbsp;&nbsp;</p>
+                <input class="btn2" type="Submit" (click)="searchCustomers()" value="Search">
+            </div>
+            <div *ngIf="!customerFound" class="error-messages text-danger">
+                {{message0}}
+            </div>
+            <div *ngIf="customerFound && customerFound.idBusiness">
+                <ul>
+                    <li><span>ID:&nbsp;&nbsp;&nbsp;{{customerFound.idBusiness}}</span></li>
+                    <li><span>Name:&nbsp;&nbsp;&nbsp;{{customerFound.firstName}}</span></li>
+                    <li><span>Balance:&nbsp;&nbsp;&nbsp;{{customerFound.balance}}</span></li>
+                    <li><span>Debt amount:&nbsp;&nbsp;&nbsp;{{customerFound.debtAmount}}</span></li>
+                </ul>
+                <div class="row" *ngIf="!(customerFound && (customerFound.idSeller === loggedInUser.idSeler))" style="margin-top: 15px; margin-bottom: 50px; margin-left: 20px ">
+                    <input class="input1" type="number" [(ngModel)]="initialBalance" placeholder="Initial balance"><p>&nbsp;&nbsp;</p>
+                    <input class="btn2" type="Submit" (click)="AddCustomer()" value="Add">
+                </div>
+                <div *ngIf="message"  style="color: green" class="success-messages text-success">
+                    {{message}}
+                </div>
+
+                <div class="row" *ngIf="customerFound && (customerFound.idSeller === loggedInUser.idSeler)" style="margin-top: 15px; margin-bottom: 50px; margin-left: 20px ">
+                    <input class="input1" type="number" [(ngModel)]="addedBalance" placeholder="Enter an amount" (ngModelChange)="onBalanceChange($event)"><p>&nbsp;&nbsp;</p>
+                    <input class="btn2" type="Submit" (click)="giveBalance()" value="Give balance" [disabled]="addedBalance <= 0">
+                </div>
+                <div *ngIf="message1"  style="color: green" class="success-messages text-success">
+                    {{message1}}
+                </div>
+                <div *ngIf="message2" class="error-messages text-danger">
+                    {{message2}}
+                </div>
+                <br>
+                <br>
+                <div class="row" *ngIf="customerFound && (customerFound.idSeller === loggedInUser.idSeler)" style="margin-top: 15px; margin-bottom: 70px; margin-left: 20px ">
+                    <span>Debt amount: {{customerFound.debtAmount}}</span><p>&nbsp;&nbsp;</p>
+                    <input class="btn2" type="Submit" (click)="bayDebt()" value="Pay debt">
+                </div>
+                <div *ngIf="message3"  style="color: green" class="success-messages text-success">
+                    {{message3}}
+                </div>
+                <div *ngIf="customerFound.debtAmount == 0" class="error-messages text-danger">
+                    {{messageErrorr}}
+                </div>
+
+            </div>
+            <br>
+            <div  class="input-box" >
+
+            </div>
+            <!--<div class="btn" style="margin-top:35px ;margin-bottom: 19px" (click)="searchCustomers()">
+              <button type="submit" (click)="addCustomer()">Search</button>
+            </div>-->
+
+        </div>
+    </div>
+
+    <div class="footerContainer">
+        <div class="footerNav">
+            <ul>
+                <li><a style="color: #000000" href="sellerHome">Home</a></li>
+                <li><a style="color: #000000" href="customersList">Customers</a></li>
+                <li><a style="color: #4158d0" href="sellerActions">Actions</a></li>
+                <li><a style="color: #000000" href="profilUser">Profil</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+</body>
+

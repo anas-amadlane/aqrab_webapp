@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="utf-8">
+</head>
+<body *ngIf="loggedInUser.typeUser=='admin'">
+<div class="wrapper">
+  <div class="title">AQRAB Dashboard </div>
+  <form>
+    <div >
+      <table class="table table-striped table-hover table-transactions">
+        <thead>
+        <tr>
+          <th style="width:20%;" >Sellers</th>
+          <th style="width:20%;">Number custumers</th>
+          <th style="width:10%;">Number transaction</th>
+          <th style="width:20%;">Total  Paid debt </th>
+          <th style="width:40%;">Total  Unpaid debt </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let seller of sellersList | paginate:{
+          itemsPerPage: tableSize,
+          currentPage: page,
+          totalItems: count}; let i = index">
+          <td>{{seller.firstName}} <br> {{seller.lastName}}</td>
+          <td>{{seller.numberOfCustomers}}</td>
+          <td>{{ seller.totalTransactions}}</td>
+          <td>{{seller.debtTotalAmountPayed}}</td>
+          <td>{{seller.debtTotalAmount}}    </td>
+
+        </tr>
+        </tbody>
+      </table>
+      <div style="margin-left: 70px ; margin-top: 12px">
+        <pagination-controls previousLabel="Prev" nextLabel="Next"
+          (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+      </div>
+    </div>
+  </form>
+  <div class="footerContainer">
+    <div class="footerNav" *ngIf="loggedInUser.typeUser=='admin'">
+      <ul>
+        <li><a style="color: #4158d0" href="admin">Home</a></li>
+        <li><a style="color: #000000" href="profilUser">Profil</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

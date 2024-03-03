@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="wrapper">
+  <h2>Registration</h2>
+  <form [formGroup]="registerForm" class="input-box" (ngSubmit)="onFormSubmit()">
+    <div class="row">
+      <div class="input-box">
+        <label for="firstName">First Name</label>
+        <div >
+          <input type="text" formControlName="firstName" id="firstName" class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && hasError('firstName', 'required') }"
+                 placeholder="Enter First Name here"/>
+          <div *ngIf="submitted && hasError('firstName', 'required')" class="invalid-feedback">
+            <div  class="error-messages" >First Name is required</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-box">
+        <label for="lastName">Last Name</label>
+        <div class="field">
+          <input type="text" formControlName="lastName" id="lastName" class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && hasError('lastName', 'required') }"
+                 placeholder="Enter Last Name here"/>
+        </div>
+        <div *ngIf="submitted && hasError('lastName', 'required')" class="invalid-feedback">
+          <div  class="error-messages" >Last Name is required</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-box">
+        <label for="email">Email</label>
+        <div class="field">
+          <input type="text" formControlName="email" class="form-control" id="email"
+                 [ngClass]="{ 'is-invalid': submitted && hasError('email', 'required') }"
+                 placeholder="Enter email here"/>
+          <div *ngIf="submitted && hasError('email', 'required')"  class="error-messages ng-active">
+            <div>Email is required</div>
+          </div>
+          <div *ngIf="submitted && hasError('email', 'email')"  class="error-messages ng-active">
+            <div>Enter valid email address</div>
+          </div>
+          <div *ngIf="submitted && errorEmail"  class="error-messages ng-active">
+            <div>{{errorEmail}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-box">
+        <label for="phone">Phone</label>
+        <div class="field">
+          <input type="number" formControlName="phone"  id="phone" class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && hasError('phone', 'required') }"
+                 placeholder="Enter Phone here"/>
+          <div *ngIf="submitted && hasError('phone', 'required')" class="error-messages ng-active">
+            <div>Phone is required</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="  margin-bottom: 40px;">
+      <div class="input-box">
+        <label >Type of User</label>
+        <div class="field">
+          <div class="form-check">
+            <input type="radio" formControlName="typeUser" id="seller" class="form-check-input" value="seller">
+            <label class="form-check-label" for="seller">Seller</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" formControlName="typeUser" id="customer" class="form-check-input" value="customer">
+            <label class="form-check-label" for="customer">Customer</label>
+          </div>
+          <div *ngIf="submitted && hasError('typeUser', 'required')" class="error-messages ">
+            <div>type is required</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="registerForm.value?.typeUser=='customer' "  >
+      <div class="input-box">
+        <label for="monthlyIncome">Monthly income (MAD)</label>
+        <div class="field">
+          <input type="number" formControlName="monthlyIncome" id="monthlyIncome" class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && hasError('MonthlyIncome', 'required') || hasError('MonthlyIncome', 'invalidMonthlyIncome') }"
+                 placeholder="ex: 5000.00"/>
+          <div *ngIf="submitted && (hasError('monthlyIncome', 'required') || hasError('monthlyIncome', 'invalidMonthlyIncome') || hasError('monthlyIncome', 'invalidValue'))" class="invalid-feedback">
+            <div class="error-messages ng-active">
+              <div *ngIf="hasError('monthlyIncome', 'required')">Enter a valid monthly income</div>
+              <div *ngIf="hasError('monthlyIncome', 'invalidMonthlyIncome')">Invalid monthly income format</div>
+              <div *ngIf="hasError('monthlyIncome', 'invalidValue')">Enter a valid value (greater than 0)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-box">
+        <label for="password">Password</label>
+        <div class="field">
+          <input type="password" formControlName="password"  id="password" class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && hasError('password', 'required') }"
+                 placeholder="Enter Password here"/>
+          <div *ngIf="submitted && hasError('password', 'required')"  class="error-messages">
+            <div>Password is required</div>
+          </div>
+          <div *ngIf="submitted && hasError('password', 'minlength')"  class="error-messages ">
+            <div>Password must be at least 6 characters</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 30px ; text-align: center">
+      <div  class="input-box">
+        <div class="input-box button">
+          <input type="submit"  value="Register Now">
+        </div>
+        <div class="text">
+          <h3>Already have an account? <a routerLink="/login">Login now</a></h3>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+</html>

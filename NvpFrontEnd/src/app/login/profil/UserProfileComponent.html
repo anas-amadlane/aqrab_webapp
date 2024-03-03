@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport">
+  <title>User Profile</title>
+</head>
+<body>
+
+<div class="profile-container">
+  <img src="assets/imag/profilUser.png" alt="Profile Picture" class="profile-picture">
+
+  <div class="profile-details" >
+    <div class="col-sm-12 row">
+      <span class="detail-label">Full Name:</span>
+      <span class="detail-value">{{ user.firstName }} {{user.lastName}}</span>
+    </div>
+    <div class="row">
+      <span class="detail-label">Email:</span>
+      <span class="detail-value">{{user.email}}</span>
+    </div>
+    <div class="row" *ngIf="user.typeUser=='customer'">
+      <span class="detail-label" >Id User:</span>
+      <span class="detail-value">{{user.idBusiness}}</span>
+    </div>
+    <div class="row">
+      <span class="detail-label">Phone:</span>
+      <span class="detail-value">{{user.phone}}</span>
+    </div>
+    <div class="row" style="margin-top: 35px; margin-bottom: 50px; margin-left: 30px ">
+      <div  class="input-box field" (click)="logout()"  >
+        <div class="input-box button">
+          <input type="Submit" value="logout">
+        </div>
+      </div>
+    </div>
+    <div class="footerContainer">
+      <div class="footerNav">
+        <ul *ngIf="this.user.typeUser=='customer'">
+          <li ><a style="color: #000000" href="home">Home</a></li>
+          <li><a style="color: #000000" href="transactions">Transactions</a></li>
+          <li><a style="color: #4158d0" href="profilUser">Profil</a></li>
+
+        </ul>
+        <ul  *ngIf="this.user.typeUser=='seller'">
+          <li><a style="color: #000000" href="sellerHome">Home</a></li>
+          <li><a style="color: #000000" href="customersList">Customers</a></li>
+          <li><a style="color: #000000" href="sellerActions">Actions</a></li>
+          <li><a style="color: #4158d0" href="profilUser">Profil</a></li>
+        </ul>
+        <ul *ngIf="this.user.typeUser=='admin'">
+          <li ><a style="color: #000000" href="admin">Home</a></li>
+          <li><a style="color: #4158d0" href="profilUser">Profil</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

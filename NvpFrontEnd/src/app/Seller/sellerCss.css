@@ -1,0 +1,14 @@
+.grid-container {
+  display: flow-root;
+  position: relative;
+  padding: 0 55px 40px 55px;
+}
+.grid-top-btn {
+  text-align: right;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.relative {
+  position: relative;
+}

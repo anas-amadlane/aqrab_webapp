@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+<div class="wrapper">
+  <div class="title">My Customers</div>
+      <div class="input-box" style="text-align: center" >
+        <input  type="number" style="text-align: center" placeholder="Enter the customer ID"
+               [(ngModel)]="idCustomer"
+                (ngModelChange)="onValueChange($event)"/>
+      </div>
+      <!--<div class="btn" style="margin-top:35px ;margin-bottom: 19px" (click)="searchCustomers()">
+        <button type="submit" (click)="searchCustomers()">Search</button>
+      </div>-->
+    <div style="margin-top:35px;text-align: center">
+      <input class="buttonClass" type="button" value="Search"  (click)="searchCustomers()">
+    </div>
+  <form>
+    <table class="table table-striped table-hover table-transactions">
+      <thead>
+      <tr>
+        <th style="width:15%;" >ID</th>
+        <th style="width:15%;">Balance<br></th>
+        <th style="width:25%;">Last<br>PayDebt</th>
+        <th style="width:15%;">Debt<br>Amount</th>
+        <th style="width:25%;">Last<br> Trans</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let customer of myCustomers | paginate:{
+          itemsPerPage: tableSize,
+          currentPage: page,
+          totalItems: count}; let i = index">
+          <td>{{ customer.idBusiness }}</td>
+          <td>{{ customer.balance }}</td>
+          <td>{{ customer.dateLastPayement |date:'yyyy-MM-dd'}}</td>
+          <td>{{ customer.debtAmount }}</td>
+          <td>{{ customer.dateLastTransaction |date:'yyyy-MM-dd'}}</td>
+
+
+      </tr>
+      </tbody>
+    </table>
+  </form>
+  <div>
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)">
+    </pagination-controls>
+  </div>
+  <div class="footerContainer">
+    <div class="footerNav">
+      <ul>
+        <li><a style="color: #000000" href="sellerHome">Home</a></li>
+        <li><a style="color: #4158d0" href="customersList">Customers</a></li>
+        <li><a style="color: #000000" href="sellerActions">Actions</a></li>
+        <li><a style="color: #000000" href="profilUser">Profil</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+
